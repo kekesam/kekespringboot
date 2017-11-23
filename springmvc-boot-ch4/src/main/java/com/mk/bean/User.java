@@ -7,6 +7,10 @@ public class User {
 	private String account;
 	private String password;
 	private String username;
+	private String intro;
+	private Integer male;
+	private String hobbys;
+	private String province;
 	private Integer age;
 	private Date birthday;
 
@@ -58,4 +62,35 @@ public class User {
 		this.age = age;
 	}
 
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
+
+	public Integer getMale() {
+		return male;
+	}
+
+	public void setMale(Integer male) {
+		this.male = male;
+	}
+
+	public String getHobbys() {
+		return hobbys;
+	}
+
+	public void setHobbys(String hobbys) {
+		this.hobbys = hobbys;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
 }
