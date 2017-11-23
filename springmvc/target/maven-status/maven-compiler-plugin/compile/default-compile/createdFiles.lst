@@ -1,0 +1,3 @@
+com\mk\core\WebInitalizerConfig.class
+com\mk\web\IndexController.class
+com\mk\core\SpringMvcConfig.class
