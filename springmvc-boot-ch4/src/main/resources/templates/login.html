@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录页面</title>
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet"
+	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container" style="padding: 200px;">
+		<div class="row">
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-2 control-label">账号</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="account"
+							placeholder="用户名" value="xuke">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" name="password"
+							placeholder="密码" value="123456">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label">性别</label>
+					<div class=" col-sm-10">
+						<label class="checkbox-inline"> <input type="checkbox" checked value="1" name="remember"> 记住密码一周
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button id="login" class="btn btn-default">登录</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="container" style="padding: 100px;">
+		<div class="row">
+			<h1 id="result" style="word-wrap: break-word;"></h1>
+		</div>
+	</div>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script>
+$(function() {
+
+	$("#login").on("click", function(e) {
+		e.preventDefault();
+		//获取form表单控件的名称
+		var account = $("input[name='account']").val();
+		var password = $("input[name='password']").val();
+		var remember = $("input[name='remember']:checked").val()||0;
+		//参数拼接
+		var params = {
+			"account":account,	
+			"password":password,
+			"remember":remember
+		};
+		
+		$.ajax({
+			type : "post",
+			url : "http://localhost:8080/logined",
+			data:params,
+			beforeSend : function() {
+				$("#result").html("请求执行之前处理函数...");
+			},
+			error : function() {
+				$("#result").html("请求响应出错执行函数...");
+			},
+			success : function(data) {
+				if(data=="success"){
+					window.location.href = "/success";
+				}else{
+					alert("输入账号密码有误!!!");
+					$("input[name='password']").val("").focus();
+				}
+			}
+		})
+	});
+});
+</script>
+</body>
+</html>

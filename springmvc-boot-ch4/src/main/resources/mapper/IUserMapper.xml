@@ -8,9 +8,51 @@
 			id,
 			username,
 			account,
-			password
+			password,
+			intro,
+			age,
+			birthday,
+			province,
+			hobbys,
+			male,
+			create_time as createTime
 		FROM
 			keke_user where id = #{id}
+	</select>
+	
+	
+	<select id="getLoginUser" resultType="user">
+		SELECT
+			id,
+			username,
+			account,
+			password,
+			intro,
+			age,
+			birthday,
+			province,
+			hobbys,
+			male,
+			create_time as createTime
+		FROM
+			keke_user where account = #{account} and password = #{password}
+	</select>
+	
+	<select id="getLoginByAccount" resultType="user">
+		SELECT
+			id,
+			username,
+			account,
+			password,
+			intro,
+			age,
+			birthday,
+			province,
+			hobbys,
+			male,
+			create_time as createTime
+		FROM
+			keke_user where account = #{account}
 	</select>
 	
 </mapper>
