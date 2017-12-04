@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.mapper.IUserMapper">
+
+	<select id="getUser" resultType="user" >
+		SELECT
+			id,
+			username,
+			account,
+			password,
+			intro,
+			age,
+			birthday,
+			province,
+			hobbys,
+			male,
+			create_time as createTime
+		FROM
+			keke_user where id = #{id}
+	</select>
+	
+	
+	<select id="getLoginUser" resultType="user">
+		SELECT
+			id,
+			username,
+			account,
+			password,
+			intro,
+			age,
+			birthday,
+			province,
+			hobbys,
+			male,
+			create_time as createTime
+		FROM
+			keke_user where account = #{account} and password = #{password}
+	</select>
+	
+	<select id="getLoginByAccount" resultType="user">
+		SELECT
+			id,
+			username,
+			account,
+			password,
+			intro,
+			age,
+			birthday,
+			province,
+			hobbys,
+			male,
+			create_time as createTime
+		FROM
+			keke_user where account = #{account}
+	</select>
+	
+</mapper>
