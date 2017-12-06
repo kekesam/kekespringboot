@@ -2,7 +2,6 @@ package com.mk.web;
 
 import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.boot.autoconfigure.web.servlet.error.AbstractErrorController;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +25,7 @@ public class ErrorController extends AbstractErrorController {
 	/**
 	 * 指定错误页面
 	 * 方法名：getError<br/>
-	 * 创建人：xuchengfeifei <br/>
+	 * 创建人：xuke <br/>
 	 * 时间：2017年11月28日-下午10:08:58 <br/>
 	 * 手机:15074816437<br/>
 	 * @return String<br/>
@@ -37,9 +35,6 @@ public class ErrorController extends AbstractErrorController {
 	public String getErrorPath() {
 		return "error";
 	}
-	
-	
-	
 
 	@ResponseBody
     @RequestMapping(value = "/error")
@@ -71,12 +66,10 @@ public class ErrorController extends AbstractErrorController {
         return "错误码："+status+"<br/>错误信息是："+message+"<br/>"+errormessage;
     }
 	
-	
-	
 	/**
 	 * 调用系统底层的异常
 	 * 方法名：getErrors<br/>
-	 * 创建人：xuchengfeifei <br/>
+	 * 创建人：xuke <br/>
 	 * 时间：2017年11月28日-下午10:24:12 <br/>
 	 * 手机:15074816437<br/>
 	 * @param request
@@ -97,7 +90,4 @@ public class ErrorController extends AbstractErrorController {
 	private String getErrorMessage(Throwable ex) {
 		return "服务器出现错误,请联系管理员!";
 	}
-	
-	
-	
 }

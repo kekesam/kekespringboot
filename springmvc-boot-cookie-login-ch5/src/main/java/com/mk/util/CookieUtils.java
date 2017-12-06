@@ -11,7 +11,7 @@ public class CookieUtils {
 
 	/**
 	 * 添加Cookie 方法名：addCookie<br/>
-	 * 创建人：xuchengfeifei <br/>
+	 * 创建人：xuke <br/>
 	 * 时间：2017年11月26日-下午4:18:34 <br/>
 	 * 手机:15074816437<br/>
 	 * 
@@ -29,7 +29,7 @@ public class CookieUtils {
 	/**
 	 * 添加一个新Cookie
 	 * 
-	 * @author xuchengfeifei
+	 * @author xuke
 	 * @param response
 	 *            HttpServletResponse
 	 * @param cookieName
@@ -78,7 +78,7 @@ public class CookieUtils {
 	/**
 	 * 添加一个新Cookie
 	 * 
-	 * @author xuchengfeifei
+	 * @author xuke
 	 * @param response
 	 *            HttpServletResponse
 	 * @param cookieName
@@ -97,7 +97,7 @@ public class CookieUtils {
 	/**
 	 * 根据Cookie名获取对应的Cookie
 	 * 
-	 * @author xuchengfeifei
+	 * @author xuke
 	 * @param request
 	 *            HttpServletRequest
 	 * @param cookieName
@@ -121,7 +121,7 @@ public class CookieUtils {
 	/**
 	 * 根据Cookie名获取对应的Cookie值
 	 * 
-	 * @author xuchengfeifei
+	 * @author xuke
 	 * @param request
 	 *            HttpServletRequest
 	 * @param cookieName
@@ -140,7 +140,7 @@ public class CookieUtils {
 	/**
 	 * 删除指定Cookie
 	 * 
-	 * @author xuchengfeifei
+	 * @author xuke
 	 * @param response
 	 *            HttpServletResponse
 	 * @param cookie
@@ -159,7 +159,7 @@ public class CookieUtils {
 	/**
 	 * 根据cookie名删除指定的cookie
 	 * 
-	 * @author xuchengfeifei
+	 * @author xuke
 	 * @param request
 	 *            HttpServletRequest
 	 * @param response
@@ -177,7 +177,7 @@ public class CookieUtils {
 	/**
 	 * 根据cookie名修改指定的cookie
 	 * 
-	 * @author xuchengfeifei
+	 * @author xuke
 	 * @param request
 	 *            HttpServletRequest
 	 * @param response

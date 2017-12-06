@@ -9,17 +9,18 @@
 <body>
 	
 	<div class="container">
-		<h1 class="page-header text-center" >登陆
-			<@spring.keke code="胜多负少的"/>
-			<@spring.message code="loginname"/>
+		<button class="changelan" data-lan="zh">中文</button>
+		<button class="changelan" data-lan="en">英文</button>
+		<h1 class="page-header text-center" >
+			<@spring.message code="title"/>
 		</h1>
 		<form>
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Email address</label>
+		    <label for="exampleInputEmail1"><@spring.message code="loginname"/></label>
 		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
 		  </div>
 		  <div class="form-group">
-		    <label for="exampleInputPassword1">Password</label>
+		    <label for="exampleInputPassword1"><@spring.message code="password"/></label>
 		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 		  </div>
 		  <div class="form-group">
@@ -27,8 +28,22 @@
 		    <input type="file" id="exampleInputFile">
 		    <p class="help-block">Example block-level help text here.</p>
 		  </div>
-		  <button type="submit" class="btn btn-default">Submit</button>
+		  <button type="submit" class="btn btn-default"><@spring.message code="submit"/></button>
 		</form>
 	</div>
+	
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$(".changelan").on("click",function(){
+				var lan = $(this).data("lan");
+				$.get("changelan?lan="+lan,function(data){
+					if(data=='success'){
+						window.location.href =window.location.href; 
+					}
+				})
+			});
+		});
+	</script>
 </body>
 </html>

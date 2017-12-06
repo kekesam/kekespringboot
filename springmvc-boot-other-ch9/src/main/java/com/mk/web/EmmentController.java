@@ -1,6 +1,5 @@
 package com.mk.web;
 
-import java.util.Date;
 import java.util.Random;
 
 import org.springframework.stereotype.Controller;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class EmmentController {
-	
-	
 
 	@RequestMapping(value="/emment")
 	public String emment() {

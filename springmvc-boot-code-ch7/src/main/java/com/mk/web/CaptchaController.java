@@ -34,7 +34,7 @@ public class CaptchaController {
 	@Autowired
 	private Producer captchaProducer = null;
 	/**
-	 * kaptcha.border  是否有边框  默认为true  我们可以自己设置yes，no
+	 *  kaptcha.border  是否有边框  默认为true  我们可以自己设置yes，no
 		kaptcha.border.color   边框颜色   默认为Color.BLACK
 		kaptcha.border.thickness  边框粗细度  默认为1
 		kaptcha.producer.impl   验证码生成器  默认为DefaultKaptcha

@@ -19,7 +19,7 @@ public class SpringmvcBootCh4Application {
 	/**
 	 *  配置验证码参数
 	 * 方法名：getDefaultKaptcha<br/>
-	 * 创建人：xuchengfeifei <br/>
+	 * 创建人：xuke <br/>
 	 * 时间：2017年11月28日-下午8:22:27 <br/>
 	 * 手机:15074816437<br/>
 	 * @return DefaultKaptcha<br/>

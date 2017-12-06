@@ -20,7 +20,7 @@ public class QrcodeController {
 	/**
 	 * 生成二维码
 	 * 方法名：createQrode<br/>
-	 * 创建人：xuchengfeifei <br/>
+	 * 创建人：xuke <br/>
 	 * 时间：2017年11月9日-上午12:32:26 <br/>
 	 * 手机:15074816437<br/>
 	 * @param response void<br/>
