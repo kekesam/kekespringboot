@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+</head>
+<body>
+
+
+	<img src="kaptcha/code" alt="" />	
+	<div class="container">
+		<h1 class="page-header text-center">登录</h1>
+		<form>
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>
+		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputFile">File input</label>
+		    <input type="file" id="exampleInputFile">
+		    <p class="help-block">Example block-level help text here.</p>
+		  </div>
+		  <div class="checkbox">
+		  	<img src="/kaptcha/code" alt="" onclick="this.src = '/kaptcha/code?d='+Math.random()"/>
+		  	<a href="javascript:void();" id="chnage">看不清？</a>
+		  </div>
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
+		<div id="result" style="margin:20px 0;"></div>
+	</div>
+	<script src="../js/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			$("#chnage").on("click",function(){
+				$(this).prev().trigger('click');
+			});
+		});
+	</script>
+</body>
+</html>

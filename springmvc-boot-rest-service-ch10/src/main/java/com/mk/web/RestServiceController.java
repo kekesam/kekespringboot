@@ -13,7 +13,7 @@ import com.mk.bean.User;
 @RestController
 public class RestServiceController {
 
-	@GetMapping("/service/{id}")
+	@PostMapping("/service/{id}")
 	public User getUser(@PathVariable("id")Integer id) {
 		System.out.println("接受到了参数id是:"+id);
 		User user = new User();
