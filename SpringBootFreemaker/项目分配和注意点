@@ -1,0 +1,51 @@
+1：所有的项目类名大写
+2：接口以I开头 IUserDao,
+      类名首字母必须大写,驼峰命名法
+      属性名称    驼峰命名法 private IUserMapper userMapper;  
+3：注释不写的扣2元，
+4：格式不整齐扣1元。
+
+1：之前app的跑起来---myeclipse--
+2: app后端系统--eclipse--springboot开发
+  1:登录
+  2：内容管理
+  3：评论管理
+  4：用户设置
+  5：用户授权
+  6：分类管理
+  7：轮播图管理
+  8：用户管理    
+  
+  1:新建一个admin.js   
+  2:ajax不允许使用$post,$.get
+  
+   $.ajax({
+     type:"post",
+     url:basePath+"/xxxx/xxxx",
+     data:{xx:xx,xx1:xx1},
+     beforeSend:function(){
+     	loading("请稍后数据加载中...");
+     },
+     error:function(){
+     	loading("错误了...");
+     },
+     success:function(data){
+     	loading("恭喜");
+     }
+   });
+   
+   
+   
+   
+   
+ioc--依赖注入(setter /构造函数/注解、)
+--获取容器对象---ApplicationContexAarea
+                ServlcetContextArw 
+                
+                
+----Spring容器中--ApplicationContext中----WebApplicationContext                
+
+@AutoWire;
+ private IUserMapper userMapper;
+   
+  

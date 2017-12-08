@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人中心-IT书</title>
+<#include "/public/common.html">
+</head>
+<body class="site-menubar-fold site-menubar-keep">
+	<#include "/public/left.html">
+	<div class="page profile profile_index">
+		<div class="page-content">
+			<div class="row">
+				<div style="background: #fff; padding: 30px; color: #333;">
+					<h1>Form表单获取元素值的方式</h1>
+					<hr />
+					<form>
+						<p>
+							用户：<input type="text" keke name="username" id="username" />
+						</p>
+						<p>
+							密码：<input type="text" name="password" id="password" />
+						</p>
+						<p>
+							<select name="province" id="province">
+								<option value="10001">shaoyang</option>
+								<option value="10002">beiing</option>
+								<option value="10003">changsha</option>
+							</select>
+						</p>
+						<p>
+							性别： <label><input type="radio" value="1" name="male" />男</label>
+							<label><input type="radio" value="0" name="male" />女</label>
+						</p>
+						<p>
+							<label><input type="checkbox" value="1" name="hobbys" />旅游</label>
+							<label><input type="checkbox" value="2" name="hobbys" />电影</label>
+							<label><input type="checkbox" value="3" name="hobbys" />看书</label>
+							<label><input type="checkbox" value="4" name="hobbys" />逛街</label>
+						</p>
+						<p>
+							<textarea name="description" id="description"></textarea>
+						</p>
+						<p>
+							<input type="button" id="reg" value="注册" />
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="javacsript:void(0);" data-msg="1" id="link">qubaidu</a>
+	<a href="javacsript:void(0);" data-msg="2" id="link2">qubaidu</a>
+	<script>
+		
+		$(function(){
+			
+			var $a = $("#link");
+			var $a = $("a[data-msg]");
+			var $a = $("a[data-msg='2']");
+			
+			$("#reg").on("click",function(){
+				
+				//id
+				/*var username = $("#username").val();
+				var password = $("#password").val();
+				var description = $("#description").val();
+				var province = $("#province").val();
+				var male = $("input[name='male']:checked").val();
+				var hobbys = $("input[name='hobbys']:checked");
+				var harr = [];
+				for(var i=0;i<hobbys.length;i++){
+					//harr.push(hobbys[i].value);
+					harr.push($(hobbys[i]).val());
+				}*/
+				var username = $("input[name='username']").val();
+				var password = $("input[name='password']").val();
+				var description = $("textarea[name='description']").val();
+				var province = $("select[name='province']").val();
+				var male = $("input[name='male']:checked").val();
+				var hobbys = $("input[name='hobbys']:checked");
+				var harr = [];
+				for(var i=0;i<hobbys.length;i++){
+					//harr.push(hobbys[i].value);
+					harr.push($(hobbys[i]).val());
+				}
+				
+				console.log(username);
+				console.log(password);
+				console.log(description);
+				console.log(province);
+				console.log(male);
+				console.log(harr.toString());
+			});
+			
+		});
+		
+		
+	</script>
+</body>
+</html>

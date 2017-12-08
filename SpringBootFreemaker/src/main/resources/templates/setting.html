@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人中心-IT书</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="css/center.css" />
+<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+</head>
+<body class="site-menubar-fold site-menubar-keep">
+		<div class="site-menubar">
+			<div class="site-menubar-head text-center">
+				<a class="navbar-avatar" href="${basePath}/u/${session_user.url}">
+					<span class="avatar avatar-online">
+					<img src="${basePath}/${session_user.headerPic}" alt="${session_user.username}">
+				</span>
+				</a>
+			</div>
+			<div class="site-menubar-body">
+				<div>
+					<div>
+						<ul class="site-menu">
+							<li class="site-menu-item">
+								<a href="book.html" title="官网">
+									<i class="iconfont icon-home"></i>
+								</a>
+							</li>	
+							<li class="site-menu-item active">
+								<a href="book.html" title="课程">
+									<i class="iconfont icon-iconfontallon"></i>
+								</a>
+							</li>
+							<li class="site-menu-item ">
+								<a href="book.html" title="文章">
+									<i class="iconfont icon-homeall"></i>
+								</a>
+							</li>
+							<li class="site-menu-item">
+								<a href="book.html" title="好友管理">
+									<i class="iconfont icon-friendfavor"></i>
+								</a>
+							</li>
+						</ul>
+						<ul class="site-menu site-menu-bottom padding-bottom-20">
+							<li class="site-menu-item active">
+								<a href="setting.html" title="账户设置">
+									<i class="iconfont icon-my fz24"></i>
+								</a>
+							</li>
+							<li class="site-menu-item ">
+								<a href="javascript:void(0);" onclick="mkLogin.logout()" title="退出">
+									<i class="iconfont icon-Logout"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page profile profile_info profile_index">
+			<div class="page-content">
+				<div class="row">
+					<div class="col-lg-7 col-md-7">
+						<div class="nav-tabs-horizontal nav-tabs-inverse">
+							<ul class="nav nav-tabs nav-tabs-solid profile_nav" id="nav-tabs-solidlist">
+								<li class="active">
+									<a href="javascript:void(0);" class="padding-horizontal-30">
+										<i class="iconfont icon-setting  tp1"></i>账户信息
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="padding-horizontal-30">
+										<i class="iconfont icon-setting  tp1"></i>修改密码
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="padding-horizontal-30">
+										<i class="iconfont icon-setting  tp1"></i>实名签约
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="padding-horizontal-30">
+										<i class="iconfont icon-setting  tp1"></i>登录信息
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="padding-horizontal-30">
+										<i class="iconfont icon-setting  tp1"></i>收获地址
+									</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="row">
+									<div class="col-md-7">
+										<div class="form-horizontal">
+											<div class="form-group margin-top-20">
+												<label class="col-sm-3 control-label">
+												<a class="avatar avatar-100 margin-xs-0 vertical-align headuploadimg" href="javascript:void(0)">
+													<img src="https://img.metinfo.cn/?username=1571828260@qq.com" alt="1571828260@qq.com">
+												</a>
+												</label>
+												<div class="col-sm-9">
+													<a href="javascript:void(0)" class="headuploadbtn">
+														<i class="iconfont icon-upload1" aria-hidden="true"></i>
+														上传头像
+														<input type="file" value="" name="head">
+													</a>
+													<p class="blue-grey-400 margin-bottom-0">支持上传 jpg、png、gif 格式图片，大小不超过「2Mb」。</p>
+												</div>
+											</div>
+											<div class="form-group margin-top-20">
+												<label class="col-sm-3 control-label list">用户名</label>
+												<div class="col-sm-9 list">
+													1571828260@qq.com
+												</div>
+											</div>
+											<div class="form-group margin-top-20">
+												<label class="col-sm-3 control-label list">邮箱</label>
+												<div class="col-sm-9 list">
+					
+													1571828260@qq.com
+													<a href="javascript:void(0)" class="margin-left-10 emailedit">修改</a>
+					
+												</div>
+											</div>
+											<div class="form-group margin-top-20">
+												<label class="col-sm-3 control-label list">手机</label>
+												<div class="col-sm-9 list">
+					
+													<a href="javascript:void(0)" class="teledit">绑定手机</a>
+					
+												</div>
+											</div>
+											<div class="form-group margin-top-20">
+												<label class="col-sm-3 control-label list">密码</label>
+												<div class="col-sm-9 list">
+													<a href="javascript:void(0)" class="passedit" data-url="https://account.metinfo.cn/profile/info/do_m_password/">修改密码</a>
+												</div>
+											</div>
+											<hr>
+											<div class="example-wrap margin-bottom-0">
+											<form method="POST" class="form-horizontal fv-form fv-form-bootstrap" id="companyinfoedit" action="https://account.metinfo.cn/profile/info/do_m_info/" novalidate="novalidate"><button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+												<div class="form-group margin-top-20">
+													<label class="col-sm-3 control-label">公司名称</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" value="xiaoer" name="company">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 control-label">联系人</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" value="" name="name">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 control-label">固定电话</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" value="" name="telephone">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 control-label">省份</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" value="" name="province">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 control-label">城市</label>
+													<div class="col-sm-9">
+														<input type="text" class="form-control" value="" name="city">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-3 control-label">详细地址</label>
+													<div class="col-sm-9">
+														<textarea class="form-control" name="address" rows="3"></textarea>
+													</div>
+												</div>
+												<div class="form-group margin-bottom-0">
+													<label class="col-sm-3 control-label"></label>
+													<div class="col-sm-9">
+														<button type="submit" class="btn btn-primary">保存</button>
+													</div>
+												</div>
+											</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(function(){
+				$("#nav-tabs-solidlist").find("li").on("click",function(){
+					$(this).addClass("active").siblings().removeClass("active");
+				});
+			});
+		</script>
+	</body>
+</html>

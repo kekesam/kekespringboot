@@ -1,0 +1,19 @@
+<#list users as user>
+	<h1 data-itemcount="${itemCount}">
+		${user.username}===${user.account}===${(user.createTime)?date}==
+		<a href="javascript:void(0);" class="delusers" >删除</a>
+		<#-- <#if user.status==1>
+			<label><input name="status${user.id}" checked type="radio" value="1">发布</label>
+			<label><input name="status${user.id}"  type="radio" value="0">不发布</label>
+		<#else>
+			<label><input name="status${user.id}"  type="radio" value="1">发布</label>
+			<label><input name="status${user.id}" checked type="radio" value="0">不发布</label>
+		</#if> -->
+		
+		<!-- <label><input name="status${user.id}" <#if user.status==1>checked</#if> type="radio" value="1">发布</label>
+		<label><input name="status${user.id}" <#if user.status==0>checked</#if> type="radio" value="0">不发布</label> -->
+		
+		<!-- <label><input name="status${user.id}" ${(user.status==1)?string('checked','')} type="radio" value="1">发布</label>
+		<label><input name="status${user.id}" ${(user.status==0)?string('checked','')} type="radio" value="0">不发布</label> -->
+	</h1>
+</#list>

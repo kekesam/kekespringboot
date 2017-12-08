@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人中心-IT书</title>
+<#include "/public/common.html">
+<style>
+	.hljs{font-size:16px;}
+</style>
+</head>
+<body class="site-menubar-fold site-menubar-keep">
+	<#include "/public/left.html">
+	<div class="page profile profile_index">
+		<div class="page-content">
+			<div class="row">
+			<div style="background: #fff; padding: 30px; color: #333;">
+				
+				<h1>JS代码高亮插件</h1>
+				<p>
+					官网地址：<a href="https://highlightjs.org/download/" target="_blank">https://highlightjs.org/download/</a>
+				</p>
+<pre>
+<code class="hljs">
+ //引入对应css和js
+ &lt;link rel="stylesheet" href="${basePath}/js/high/default.min.css"&gt;
+ &lt;script src="${basePath}/js/high/highlight.min.js"&gt;&lt;/script&gt;
+
+</code>
+</pre>	
+<pre>
+<code class="hljs">
+ hljs.initHighlightingOnLoad();
+
+</code>
+</pre>		
+<pre>
+<code class="hljs">
+ &lt;h1&gt;作业&lt;/h1>
+ &lt;p&gt;1:新建一个form,把form表单中所有的类型都定义出来,获取值&lt;/p&gt;
+ &lt;p&gt;2:可以使用javascript获取一下&lt;/p&gt;
+ &lt;p&gt;3:实现全选和反选--prop("checked",true)&lt;/p&gt;
+
+ 1:jquery根据 id获取值
+ 2:jquery根据 name获取值 $("input[name]").val(),$("select[name=]")
+ 3:js根据 id获取值
+ 4:js根据 name获取值(可以不写)
+
+
+</code>
+</pre>
+	</div>
+</div>
+
+
+<link rel="stylesheet" href="${basePath}/js/high/monokai-sublime.css">
+<script src="${basePath}/js/high/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

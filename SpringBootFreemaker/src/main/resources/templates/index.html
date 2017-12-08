@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人中心-IT书</title>
+<#include "/public/common.html">
+</head>
+<body  class="site-menubar-fold site-menubar-keep">
+	<#include "/public/left.html">
+		<div class="page profile profile_index">
+			<div class="page-content">
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+						<div class="nav-tabs-horizontal nav-tabs-inverse">
+							<ul class="nav nav-tabs nav-tabs-solid profile_nav" id="nav-tabs-solidlist">
+								<li class="active">
+									<a href="javascript:void(0);" class="padding-horizontal-30">
+										<i class="iconfont icon-vip fz20 tp1"></i>报名课程
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="padding-horizontal-30">
+										<i class="iconfont icon-xingxing fz20 tp1"></i>收藏课程
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="padding-horizontal-30">
+										<i class="iconfont icon-like fz20 tp1"></i>喜欢课程
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="padding-horizontal-30">
+										<i class="iconfont icon-comment fz20 tp1"></i>评论过的课程
+									</a>
+								</li>
+							</ul>
+							<h1>
+							<div class="tab-content" id="app">
+								<div class="row">
+									<div class="col-md-12">
+										<table class="table table-hover">
+									      <thead>
+									        <tr>
+									          <th>#</th>
+									          <th>First Name</th>
+									          <th>Last Name</th>
+									          <th>Username</th>
+									          <th>操作</th>
+									        </tr>
+									      </thead>
+									      <tbody id="tbody">
+									        <tr>
+									          <td scope="row">1</td>
+									          <td class="eidtitem" data-field="username">Mark2</td>
+									          <td class="eidtitem" data-field="password">Otto3</td>
+									          <td class="eidtitem" data-field="age">@mdo4</td>
+									          <td>
+									          	<button data-opid="11" class="btn btn-success editbtn">修改</button>
+									          	<button data-opid="11" class="btn btn-dark savebtn" style="display: none;">保存</button>
+									          	<button class="btn btn-info canclebtn" style="display:none;">取消</button>
+									          	<button class="btn btn-info delbtn">删除</button>
+									          </td>
+									        </tr>
+									        <tr>
+									          <td scope="row">2</td>
+									          <td class="eidtitem" data-field="username">Mark2</td>
+									          <td class="eidtitem" data-field="password">Otto3</td>
+									          <td class="eidtitem" data-field="age">@mdo4</td>
+									          <td>
+									          	<button data-opid="12" class="btn btn-success editbtn">修改</button>
+									          	<button data-opid="12" class="btn btn-dark savebtn" style="display: none;">保存</button>
+									          	<button class="btn btn-info canclebtn" style="display:none;">取消</button>
+									          	<button class="btn btn-info delbtn">删除</button>
+									          </td>
+									        </tr>
+									      </tbody>
+									    </table>
+									</div>
+									<img src="http://localhost:8080/qrcode?q=你们太可爱了！" alt="" />
+									<img src="http://localhost:8080/qrcode2?q=“我觉得每过一个小时就像熬了一年一样，如果是真的来玩那该多好啊。” 怀孕五个月的小静躺在病床上，刚静脉注射催产针的她看上去很憔悴。天气闷热，除了护士没人和她搭话。 男朋友没有..." alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		 
+		
+		<script>
+			function dialog(title,content,callback){
+				var $dialog = $("<div class='modal' tabindex='-1' style='display: block;'>"+
+				" <div class='modal-dialog' role='document'>"+
+				"   <div class='modal-content'>"+
+				"     <div class='modal-header'>"+
+				"       <button type='button' class='close js-closebtn'><span>&times;</span></button>"+
+				"       <h4 class='modal-title'>"+title+"</h4>"+
+				"     </div>"+
+				"     <div class='modal-body'>"+
+				"       <p>"+content+"</p>"+
+				"     </div>"+
+				"     <div class='modal-footer'>"+
+				"       <button type='button' class='btn btn-default js-closebtn'>关闭</button>"+
+				"       <button type='button' class='btn btn-primary js-surebtn'>确定</button>"+
+				"     </div>"+
+				"   </div>"+
+				" </div>"+
+				"</div>");
+				
+				var $overlay = $("<div class='modal-backdrop fade in'></div>");
+				$("body").append($dialog).append($overlay);
+				
+				//绑定点击事件
+				$dialog.find(".js-surebtn").on("click",function(){
+					//删除用户
+					if(callback)callback(true);
+					$dialog.fadeOut("slow",function(){
+						$(this).next().remove();
+						$(this).remove();
+					});
+				});
+				
+				//关闭
+				$dialog.find(".js-closebtn").on("click",function(){
+					//删除用户
+					if(callback)callback(false);
+					$dialog.fadeOut("slow",function(){
+						$(this).next().remove();
+						$(this).remove();
+					});
+				});
+			}
+		
+		
+			$(function(){
+				
+				$(".delbtn").on("click",function(){
+					dialog("删除提示","你确定抛弃我，离我而去!!!",function(ok){
+						if(ok){
+							alert("你点击的是确定按钮");
+						}
+					});
+				});
+				
+				
+				//$("#tbody td")
+				$("#tbody").find(".eidtitem").on("dblclick",function(){
+					var len = $(this).find("input").length;
+					if(len>0)return;
+					//1:获取点击元素的值
+					var $td = $(this);//td
+					var text = $td.text();
+					//2:创建input元素，把值赋值给input框
+					var $input = $("<input type='text'/>");
+					$input.val(text);
+					//3:把input放入td中.
+					$td.html($input);
+					$input.focus();
+					//4:并且绑定blur失去焦点事件，保存更新
+					$input.on("blur",function(){
+						var newvalue = $(this).val();
+						//有新的值并且要发生改变
+						if(newvalue!="" && newvalue!=text){
+							$td.html(newvalue);
+							
+							//var opid = $$td.data("opid");
+							//var filed = $td.data("field");
+							//执行ajax
+						}else{
+							$td.html(text);
+						}
+					});
+				});
+				
+				
+				
+				$(".editbtn").on("click",function(){
+					var len = $(".on").length;
+					if(len>0)return;
+					$(this).parents("tr").addClass("on");
+					var $tds = $(this).parents("tr").find(".eidtitem");
+					$(this).hide();
+					//$(this).next().show().next().show();
+					$(this).parent().find(".savebtn,.canclebtn").show();
+					$tds.each(function(index,obj){
+						//1:获取点击元素的值
+						var $td = $(this);//td
+						var text = $td.text();
+						//2:创建input元素，把值赋值给input框
+						var a = "";
+						if(index==0)a = "autofocus";
+						var $input = $("<input type='text' "+a+"/>");
+						$input.val(text);
+						//3:把input放入td中.
+						$td.html($input);
+					});
+				});
+				
+				
+				$(".canclebtn").on("click",function(){
+					$(this).hide();
+					$(this).prev().hide();
+					$(this).prev().prev().show();
+					$(this).parents("tr").removeClass("on");
+					var $tds = $(this).parents("tr").find(".eidtitem");
+					$tds.each(function(index,obj){
+						//1:获取点击元素的值
+						var $td = $(this);//td
+						var value = $td.find("input").val();
+						$td.html(value);
+					});
+					
+					
+				});
+				
+				
+				
+				$(".savebtn").on("click",function(){
+					var opid = $(this).data("opid");
+					var $tds = $(this).parents("tr").find(".eidtitem");
+					var params = {id:opid};
+					$tds.each(function(index,obj){
+						var field = $(this).data("field");
+						var value = $(this).find("input").val();
+						params[field] = value;
+					});
+				
+					alert(JSON.stringify(params));
+					
+					//ajax
+					$.ajax({
+						url:"",
+						type:"post",
+						data:params,
+						success:function(data){
+							
+						}
+					})
+					
+					
+				});
+				
+				
+			});
+		</script>
+	</body>
+</html>

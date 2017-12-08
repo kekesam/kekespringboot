@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人中心-IT书</title>
+<#include "/public/common.html"/>
+</head>
+<body class="site-menubar-fold site-menubar-keep">
+	<#include "/public/left.html">
+	<div class="page profile profile_index">
+		<div class="page-content"/>
+			<div class="row">
+				<div style="background: #fff; padding: 30px; color: #333;">
+					
+					<h1>关于JSON格式工具类</h1>
+					<h3>JSON.stringify(object),将一个js对象，转换成string</h3>
+					<h3>JSON.parse(jsonstring),将一个json字符串，转换成js对象</h3>
+					<h1 style="color:red;">注意：JSON必须全大写</h1>
+					<form>
+						<p>用户：<input type="text" id="username"/></p>
+						<p>密码：<input type="text" id="password"/></p>
+						<p>性别：
+							<label ><input type="radio" value="1" name="male"/>男</label>
+							<label ><input type="radio" value="0" name="male"/>女</label>
+						</p>
+						<p>
+							<label><input type="checkbox" value="1" name="rememe"/>记住密码</label>	
+						</p>
+						<p><input type="button" id="reg" value="注册"/></p>
+						
+					</form>
+					
+					<script>
+					
+						
+						$(function(){
+							/* $("#username").on("keyup",function(){
+								var value = $(this).val();
+								setSession("username",value);
+							});
+							
+							$("#password").on("keyup",function(){
+								var value = $(this).val();
+								setSession("password",value);
+							});
+							
+							$("input[name='male']").on("change",function(){
+								var value = $(this).val();
+								setSession("male",value);
+							}); */
+							
+							var jsonstring = getSession("user_data");
+							var json = JSON.parse(jsonstring);
+							
+							$("#username").val(json.username);
+							$("#password").val(json.password);
+							$("input[name='male'][value='"+json.male+"']").prop("checked",true);
+							
+							loading(JSON.stringify(json));
+							
+							$("input[name='rememe']").on("click",function(){
+								//var flag = $(this).prop("checked");
+								var flag = $(this).is(":checked");
+								if(flag){
+									var username = $("#username").val();
+									var password = $("#password").val();
+									var male = $("input[name='male']:checked").val();
+									var params = {
+										"username":username,
+										"password":password,
+										"male":male
+									};
+									var jsonstring = JSON.stringify(params);
+									//放入了一个对象
+									setSession("user_data",jsonstring);
+								}
+							});
+						});
+					
+						//设置缓存
+						function setSession(key,value,flag){
+							var storage = flag?window.sessionStorage:window.localStorage;
+							if(storage){
+								storage.setItem("mk_"+key,value);
+							}else{
+								//cookie
+							}
+						};
+	
+						//获取缓存
+						function getSession(key,flag){
+							var storage = flag?window.sessionStorage:window.localStorage;
+							return storage.getItem("mk_"+key);
+						};
+	
+						//删除缓存
+						function removeSession(key,flag){
+							var storage = flag?window.sessionStorage:window.localStorage;
+							storage.removeItem("mk_"+key);
+						};
+					
+					</script>
+					
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mengke.mapper.IUserMapper">
+
+	<select id="findUsers" resultType="user" parameterType="tmparams">
+		<bind name="searchkey" value="'%'+keyword+'%'" />
+		SELECT
+			id,
+			username,
+			account,
+			create_time AS createTime
+		FROM
+			keke_user
+		<trim prefix="WHERE" prefixOverrides="and|or">
+			<if test="keyword!=null">username like #{searchkey}</if>
+		</trim>
+		LIMIT #{pageNo},#{pageSize}
+	</select>
+	
+	<select id="countUsers" resultType="int" parameterType="tmparams">
+		select count(1) from keke_user
+		<trim prefix="WHERE" prefixOverrides="and|or">
+			<if test="keyword!=null">username like '%${keyword}%'</if>
+		</trim>
+	</select>
+	
+	<select id="getLogin" resultType="user">
+		SELECT
+			id,
+			username,
+			account,
+			img
+		FROM
+			keke_user
+		WHERE
+			account = #{account}
+		AND `password` = #{password}
+	</select>
+	
+	
+	<select id="getLoginByAccount" resultType="user">
+		SELECT
+			id,
+			username,
+			account,
+			img
+		FROM
+			keke_user
+		WHERE
+			account = #{account}
+	</select>
+	
+	<delete id="deluser">
+		 delete from ${tabname} where id = #{id}
+	</delete>
+	
+</mapper>

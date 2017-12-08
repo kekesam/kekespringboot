@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<h1>freemaker基础介绍入门</h1>
+	<h3>
+		freemaker的标签指令都是同<#标签名><\/#标签名>,取值是都是通过$ { }
+		freemaker里面$ { } 是不支持三目运算符
+		freemaker注释的问题：<#-- 注释内容 --> 不会执行标签渲染了
+		()!---如果里面内容是null的化，那么就用""去填充
+	</h3>
+	<hr />
+	<ul>
+		<h3>获取集合的长度:${users?size}</h3>
+		<#list users as user>
+			<#if user??>
+				<li>
+					${user_index+1}：${(user.username)!"未知"}===${user.id}==${user.male}
+					<#-- <#if user.male==1>男</#if>
+						<#if user.male==0>女</#if> 
+						<#if user.male==1>男<#else>女</#if>
+					-->
+					=====>${(user.male==1)?string("男","女")}
+					<#-- 
+					<#if user.male==0> 
+						<span>女</span>
+					<#elseif user.male==1>
+						<span>男</span>
+					<#else>
+						<span>未知</span>
+					</#if>
+					${(user.birthday)?date}
+					${(user.birthday)?time}
+					===>${(user.birthday)?datetime}===
+					${(user.birthday)?string("yyyy-MM-dd")}
+					${(user.birthday)?string("MM月yyyy年dd日")}-->
+				</li>
+			</#if>
+		</#list>
+		<#assign cnum=9/>
+		<#list 1..cnum as num>
+			${num}
+		</#list>
+	</ul>
+	<hr />
+	<h3>控制处理，数字格式化，日期格式化</h3>
+	====>${(234234.235234)?string("#.##")}
+	<hr />
+	
+	<#if course??>不为空，进入此地方</#if>
+	<#if !course??>等于空，进入此地方</#if>
+	
+</body>
+</html>
