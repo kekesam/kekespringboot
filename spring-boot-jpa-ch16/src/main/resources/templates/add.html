@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="js/jquery-1.12.4.js"></script>
+</head>
+<body>
+	<div class="container" style="margin-top:200px;">
+		<div class="row">
+			<h1 class="page-header">添加课程信息</h1>
+			<a href="http://localhost:8080/page/1/5" class="btn btn-info">返回首页</a>
+			<form id="courseform">
+		      <div class="form-group">
+		        <label for="exampleInputEmail1">课程名称</label>
+		        <input type="text" class="form-control" name="title" placeholder="课程名称">
+		      </div>
+		      <div class="form-group">
+		        <label for="exampleInputPassword1">课程分类</label>
+		        <select name="category.id" class="form-control">
+		        	<option value="">--请选择--</option>
+		        	<option value="1">Java</option>
+					<option value="2">JS</option>
+					<option value="3">PHP</option>
+					<option value="4">Nodejs</option>
+					<option value="5">Web</option>
+		        </select>
+		      </div>
+		      <div class="form-group">
+		        <label for="exampleInputPassword1">课程老师</label>
+		        <select name="user.id" class="form-control">
+		        	<option value="">--请选择--</option>
+		        	<option value="1">徐柯</option>
+					<option value="2">张三</option>
+					<option value="3">李四</option>
+		        </select>
+		      </div>
+		      <button type="button" id="savebtn" class="btn btn-default">保存</button>
+		    </form>
+		</div>
+	</div>
+	<script>
+		
+		$(function(){
+			$("#savebtn").on("click",function(e){
+				e.preventDefault();
+				var params = $("#courseform").serialize();
+				$.post("/course/save",params,function(data){
+					if(data=="success"){
+						alert("保存成功!!!");
+						window.location.href = "page/1/5";
+					}
+				});
+			});
+		});
+		
+	</script>
+</body>
+</html>

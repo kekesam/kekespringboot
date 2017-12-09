@@ -2,17 +2,13 @@ package com.mk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
+@EnableCaching //启动缓存
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-	
-	/*@Bean  
-    public DataSource dataSource() {  
-        HikariConfig config = new HikariConfig(getClass().getClassLoader().getResource("db.properties").getPath());  
-        return new HikariDataSource(config);  
-    } */
 }
