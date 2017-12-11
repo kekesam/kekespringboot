@@ -5,6 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatcher;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -12,8 +16,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.mk.bean.Course;
-
-import net.sf.ehcache.CacheManager;
 
 @Service
 public class CourseService{
@@ -43,6 +45,39 @@ public class CourseService{
 		return courseRepository.findAll(request);
 	}
 	
+	//查询分页+模糊搜索
+	@Cacheable(value=COURSE_CACHE_NAME,key="'course_cache_findByTitleLike'")
+	public Page<Course> findByTitleLike(String title,int pageNo,int pageSize){
+		//根据时间排降序
+		Sort sort = new Sort(Direction.DESC,"createTime");
+		PageRequest request = PageRequest.of(pageNo-1, pageSize, sort);
+		return courseRepository.findByTitleLike(title,request);
+	}
+	
+	//查询分页+模糊搜索
+	@Cacheable(value=COURSE_CACHE_NAME,key="'course_cache_findByExample'")
+	public Page<Course> findByExample(String title,int pageNo,int pageSize){
+		//设置查询条件
+		Course course = new Course();
+		course.setTitle(title);
+		//设置匹配规则
+		ExampleMatcher matcher = ExampleMatcher.matching()
+				.withMatcher("title", GenericPropertyMatcher.of(StringMatcher.CONTAINING));
+		Example<Course> example = Example.of(course,matcher);
+		//根据时间排降序
+		Sort sort = new Sort(Direction.DESC,"createTime");
+		PageRequest request = PageRequest.of(pageNo-1, pageSize, sort);
+		return courseRepository.findAll(example,request);
+	}
+	
+	public List<Course> findExampleQuery(String title,Boolean isDelete){
+		Course course = new Course();
+		course.setTitle(title);
+		course.setIsDelete(isDelete);
+		Example<Course> example = Example.of(course);
+		return courseRepository.findAll(example);
+	}
+	
 	//查询单个
 	@Cacheable(value=COURSE_CACHE_NAME,key="'course_cache_getcourse'+#id")
 	public Course getCourse(Long id) {
@@ -60,6 +95,7 @@ public class CourseService{
 	public Course update(Course course) {
 		return courseRepository.saveAndFlush(course);
 	}
+	
 	
 	//根据Id删除
 	@CacheEvict(value=COURSE_CACHE_NAME,key="'course_cache_findCoursesPage'")
