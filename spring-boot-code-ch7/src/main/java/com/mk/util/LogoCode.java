@@ -8,9 +8,9 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
-import jp.sourceforge.qrcode.QRCodeDecoder;
-
 import com.swetake.util.Qrcode;
+
+import jp.sourceforge.qrcode.QRCodeDecoder;
 
 /**
  * QRCode实现生成二维码加logo与解码

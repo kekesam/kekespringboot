@@ -3,8 +3,10 @@ package com.mk.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatcher;
@@ -70,6 +72,7 @@ public class CourseService{
 		return courseRepository.findAll(example,request);
 	}
 	
+	
 	public List<Course> findExampleQuery(String title,Boolean isDelete){
 		Course course = new Course();
 		course.setTitle(title);
@@ -98,7 +101,9 @@ public class CourseService{
 	
 	
 	//根据Id删除
-	@CacheEvict(value=COURSE_CACHE_NAME,key="'course_cache_findCoursesPage'")
+	//@CacheEvict(value=COURSE_CACHE_NAME,key="'course_cache_findCoursesPage'")
+	@Caching(evict= {@CacheEvict(value=COURSE_CACHE_NAME,key="'course_cache_findCoursesPage'"),
+			@CacheEvict(value=COURSE_CACHE_NAME,key="'course_cache_findCoursesPage2'")})
 	public boolean delete(Long id) {
 		try {
 			courseRepository.deleteById(id);

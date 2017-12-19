@@ -1,15 +1,10 @@
 package com.mk;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import junit.framework.Assert;
 
 public class JunitTest2 {
 	

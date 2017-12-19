@@ -12,7 +12,6 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mk.bean.User;
-import com.mk.mapper.IUserMapper;
 import com.mk.service.IUserService;
 import com.mk.util.CookieUtils;
 import com.mk.util.DateUtil;

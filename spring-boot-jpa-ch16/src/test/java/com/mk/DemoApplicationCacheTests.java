@@ -18,13 +18,10 @@ import net.sf.ehcache.CacheManager;
 @SpringBootTest
 public class DemoApplicationCacheTests {
 	
-	
 	@Autowired
 	private CacheManager cacheManager;
 	@Autowired
 	private UserService userService;
-	
-	
 	
 	
 	@Test

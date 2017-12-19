@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mk</groupId>
-	<artifactId>ch01</artifactId>
+	<artifactId>springmvc-boot-ch4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>springboot-ch01</name>
+	<name>springmvc-boot-ch4</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -39,13 +39,40 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- 热部署 -->
-		<dependency>  
-		    <groupId>org.springframework.boot</groupId>  
-		    <artifactId>spring-boot-devtools</artifactId>  
-		    <optional>true</optional>
-		    <!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->  
+		
+		<!-- springboot redis -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
+			<!-- 热部署 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		
+		<!-- jedis客户端引入 -->
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>2.6.0</version>
+		</dependency>
+		
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.14</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>1.9.12</version>
+		</dependency>
+
+				
+		
 	</dependencies>
 
 	<build>
@@ -94,6 +121,4 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
-
 </project>
